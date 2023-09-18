@@ -6,7 +6,7 @@
     "homepage": "https://github.com/iliasdonaa/webapi",
     "autoload": {
         "psr-4": {
-            "iliasdonaa\\webapi\\": "src/"
+            "Iliasdonaa\\Webapi\\": "src/"
         }
     },
     "authors": [
