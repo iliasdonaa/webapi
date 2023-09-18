@@ -4,7 +4,7 @@
     "type": "library",
     "description": "Api raceresult.",
     "homepage": "https://github.com/iliasdonaa/webapi",
-    "minimum-stability": "dev"| "alpha"| "beta"| "RC"|"stable", //stable
+    "minimum-stability": "dev", //stable
     "license": "MIT",
     "require": {
         "php": ">8.1.0"
