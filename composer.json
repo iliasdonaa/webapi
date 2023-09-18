@@ -9,6 +9,9 @@
             "iliasdonaa\\webapi\\": "src/"
         }
     },
+    "require": {
+        "php": ">8.1.0"
+    },
     "authors": [
         {
             "name": "Ilias Donadoni"
