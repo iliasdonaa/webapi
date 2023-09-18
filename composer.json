@@ -1,5 +1,6 @@
 {
     "name": "iliasdonaa/webapi",
+    "version":"dev-master",
     "type": "library",
     "description": "Api raceresult.",
     "homepage": "https://github.com/iliasdonaa/webapi",
