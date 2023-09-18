@@ -6,24 +6,12 @@
     "homepage": "https://github.com/iliasdonaa/webapi",
     "autoload": {
         "psr-4": {
-            "iliasdonaa\\webapi\\": "src/"
+            "iliasdonaa\\Webapi\\": "src/"
         }
     },
     "authors": [
         {
             "name": "Ilias Donadoni"
         }
-    ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/iliasdonaa/webapi"
-        }
-    ],
-    
-    "require": {
-        "php": "^7.4",
-        "guzzlehttp/guzzle": "^7.8"
-    }
-    
+    ]
 }
