@@ -1,10 +1,12 @@
 {
     "name": "iliasdonaa/webapi",
     "version": "1.0.0",
+    "type": "library",
     "description": "Api raceresult.",
+    "homepage": "https://github.com/iliasdonaa/webapi",
     "autoload": {
         "psr-4": {
-            "raceresult\\webapi\\": "src/"
+            "iliasdonaa\\webapi\\": "src/"
         }
     },
     "authors": [
@@ -17,11 +19,11 @@
             "type": "vcs",
             "url": "https://github.com/iliasdonaa/webapi"
         }
-    ],    
+    ],
+    
     "require": {
         "php": "^7.4",
-        "guzzlehttp/guzzle": "^7.8",
-        "iliasdonaa/webapi": "dev-master"
+        "guzzlehttp/guzzle": "^7.8"
     }
     
 }
