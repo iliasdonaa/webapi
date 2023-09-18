@@ -6,6 +6,11 @@
     "homepage": "https://github.com/iliasdonaa/webapi",
     "minimum-stability": "dev",
     "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "iliasdonaa\\webapi\\": "src/"
+        }
+    },
     "require": {
         "php": ">8.1.0"
     },
