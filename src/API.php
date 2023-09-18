@@ -1,6 +1,6 @@
 <?php
 
-namespace webapi;
+namespace iliasdonaa\webapi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
@@ -121,7 +121,7 @@ class API
             }
 
             if ($this->errorGen !== null) {
-                return $this->errorGen($errMsg, $statusCode);
+                return $errMsg;
             } else {
                 return new \Exception($errMsg);
             }

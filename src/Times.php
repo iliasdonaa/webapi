@@ -1,6 +1,6 @@
 <?php
 
-namespace WebAPI;
+namespace iliasdonaa\webapi;
 
 
 class Times {

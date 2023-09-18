@@ -1,5 +1,5 @@
 <?php
-namespace webapi;
+namespace iliasdonaa\webapi;
 
 class Data {
     private $api;

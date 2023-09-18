@@ -1,6 +1,6 @@
 <?php
 
-namespace webapi;
+namespace iliasdonaa\webapi;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
