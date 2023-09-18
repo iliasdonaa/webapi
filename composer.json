@@ -1,0 +1,14 @@
+{
+    "name": "raceresult/webapi",
+    "version": "1.0.0",
+    "description": "Api raceresult.",
+    "autoload": {
+        "psr-4": {
+            "raceresult\\webapi\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4"
+    }
+    
+}
