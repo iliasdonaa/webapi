@@ -7,8 +7,21 @@
             "raceresult\\webapi\\": "src/"
         }
     },
+    "authors": [
+        {
+            "name": "Ilias Donadoni"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/iliasdonaa/webapi"
+        }
+    ],    
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "guzzlehttp/guzzle": "^7.8",
+        "iliasdonaa/webapi": "dev-master"
     }
     
 }
