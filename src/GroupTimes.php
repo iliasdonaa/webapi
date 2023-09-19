@@ -1,5 +1,5 @@
 <?php
-namespace iliasdonaa\webapi;
+namespace Iliasdonaa\Webapi;
 
 class GroupTimes {
     private $api;

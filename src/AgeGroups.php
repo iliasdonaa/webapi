@@ -1,5 +1,5 @@
 <?php
-namespace webapi;
+namespace Iliasdonaa\Webapi;
 use \JsonSerializable;
 use \JsonException;
 
