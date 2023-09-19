@@ -3,8 +3,6 @@
 namespace Iliasdonaa\Webapi;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\RequestOptions;
-use Psr\Http\Message\ResponseInterface;
 use DateTime;
 
 class PublicAPI
@@ -20,12 +18,33 @@ class PublicAPI
 
     public function login($user, $pw)
     {
-        $values = [
-            'user' => $user,
-            'pw' => $pw,
-        ];
-        $resp = $this->api->post("", "public/login", null, "application/x-www-form-urlencoded", http_build_query($values));
-        $this->sessionID = $resp;
+        // $values = [
+        //     'user' => $user,
+        //     'pw' => $pw,
+        // ];
+        //$resp = $this->api->post("", "public/login", null, "application/x-www-form-urlencoded", http_build_query($values));
+        $client = new Client([
+            'base_uri' => 'https://events.raceresult.com/api/',
+            'verify'=>false
+        ]);
+        
+        try {
+            $response = $client->post('public/login', [
+                'form_params' => [
+                    'user' => $user,
+                    'pw' => $pw,
+                ],
+            ]);
+        
+            $statusCode = $response->getStatusCode();
+            $body = $response->getBody()->getContents();
+        
+            if ($statusCode === 200) {
+                $this->sessionID = $body;    
+            }
+        } catch (\Exception $e) {
+            echo 'Eccezione: ' . $e->getMessage();
+        }
     }
 
     public function logout()
@@ -38,18 +57,19 @@ class PublicAPI
 
     public function eventList($year, $filter)
     {
+        //echo $this->sessionID();
         $values = [
             'year' => $year,
             'filter' => $filter,
             'addsettings' => "EventName,EventDate,EventDate2,EventLocation,EventCountry",
         ];
-        $bts = $this->api->get("", "public/eventlist", $values);
-
-        $dest = json_decode($bts);
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new \Exception("Error decoding JSON: " . json_last_error_msg());
+        try {
+            $bts = $this->api->get("", "public/eventlist", $values);
+            $dest = ($bts);
+            return $dest;
+        } catch (\Exception $e) {
+            echo "ERRORE: ".$e->getMessage();
         }
-        return $dest;
     }
 
     public function createEvent($eventName, $eventDate, $eventCountry, $copyOf, $templateID, $mode, $laps)

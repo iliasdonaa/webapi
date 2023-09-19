@@ -61,11 +61,33 @@ class API
     public function get($eventID, $cmd, $values)
     {
         $url = $this->buildURL($eventID, $cmd, $values);
+        //echo $url;
         $headers = [
             'Authorization' => 'Bearer ' . $this->public->sessionID(),
             'User-Agent' => $this->userAgent,
         ];
-        return $this->doRequest('GET', $url, $headers);
+        //return $this->doRequest('GET', $url, $headers);
+        $client = new Client(['verify' => false]);
+
+        try {
+            $response = $client->get($url, [
+                'headers' => $headers,
+            ]);
+
+            $statusCode = $response->getStatusCode();
+            $body = $response->getBody()->getContents();
+
+            // Gestisci la risposta qui
+            if ($statusCode === 200) {
+                return $body;
+            } else {
+                // Gestisci gli errori qui
+                echo 'Errore: ' . $statusCode . ' - ' . $body;
+            }
+        } catch (\Exception $e) {
+            // Gestisci le eccezioni qui
+            echo 'Eccezione: ' . $e->getMessage();
+        }
     }
 
     public function post($eventID, $cmd, $values, $contentType, $data)
@@ -88,11 +110,12 @@ class API
         }
 
         return $this->doRequest('POST', $url, $headers, $body, $contentType);
+        
     }
 
     private function doRequest($method, $url, $headers, $body = null, $contentType = null)
     {
-        $client = new Client(['timeout' => $this->getTimeout()]);
+        $client = new Client(['timeout' => $this->getTimeout(), 'verify'=>false]);
         $options = [
             'headers' => $headers,
             'body' => $body,
@@ -142,7 +165,7 @@ class API
         $url .= "/api/{$cmd}";
 
         if (!empty($values)) {
-            $url .= '?' . $values->URLEncode();
+            $url .= '?' . http_build_query($values); // Utilizza http_build_query sull'array associativo direttamente
         }
 
         return $url;
