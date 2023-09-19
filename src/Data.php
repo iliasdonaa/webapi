@@ -29,19 +29,11 @@ class Data {
             'selectorResult' => $selectorResult,
             'listFormat' => 'JSON',
         ];
-        $bts = $this->api->get('data/list', $values);
+        $bts = $this->api->get('','data/list', $values);
+        var_dump($bts);
 
-        $arr = json_decode($bts, true);
 
-        $dest = [];
-        foreach ($arr as $col) {
-            $vl = [];
-            foreach ($col as $x) {
-                $vl[] = $x; // Assuming variant.ToVariant(x) is not needed in PHP
-            }
-            $dest[] = $vl;
-        }
-        return $dest;
+        //return $dest;
     }
 
     public function transformation($colField, $rowFields, $filter, $field, $mode, $sortByValue) {

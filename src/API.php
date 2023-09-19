@@ -58,7 +58,7 @@ class API
         return $this->public->sessionID();
     }
 
-    public function get($eventID, $cmd, $values)
+    public function get($eventID = '', $cmd, $values)
     {
         $url = $this->buildURL($eventID, $cmd, $values);
         //echo $url;
@@ -164,8 +164,8 @@ class API
 
         $url .= "/api/{$cmd}";
 
-        if (!empty($values)) {
-            $url .= '?' . http_build_query($values); // Utilizza http_build_query sull'array associativo direttamente
+        if (is_array($values) && !empty($values)) {
+            $url .= '?' . http_build_query($values);
         }
 
         return $url;

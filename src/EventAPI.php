@@ -91,10 +91,10 @@ class EventAPI
     //     return new Exporters($this);
     // }
 
-    // public function file()
-    // {
-    //     return new File($this);
-    // }
+    public function file()
+    {
+        return new File($this);
+    }
 
     public function forwarding()
     {
