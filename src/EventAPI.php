@@ -166,10 +166,10 @@ class EventAPI
         return new Results($this);
     }
 
-    // public function settings()
-    // {
-    //     return new Settings($this);
-    // }
+    public function settings()
+    {
+        return new Settings($this);
+    }
 
     // public function simpleAPI()
     // {
